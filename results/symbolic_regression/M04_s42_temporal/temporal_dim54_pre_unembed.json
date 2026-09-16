@@ -1,0 +1,134 @@
+[
+  {
+    "epoch": 499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 46.18308639526367,
+    "corr_with_x": 0.027218637084673675,
+    "sr_complexity": 18,
+    "sr_r2": 0.14361527599585844,
+    "sr_loss": 36.498814,
+    "sr_equation": "((cos(cos_x_q * 6.266956e6) + cos(sin_x_q * 6.266956e6)) * (cos(sin_x_q * 6.266956e6) + 2.481871)) + -5.3256354"
+  },
+  {
+    "epoch": 3499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 42.712669372558594,
+    "corr_with_x": 0.031133708409886815,
+    "sr_complexity": 16,
+    "sr_r2": 0.0444132694291427,
+    "sr_loss": 38.02143,
+    "sr_equation": "(cos(sin_x_q * -48.916164) + (cos(sin_x_q * 13.313477) + -3.8789678)) + cos(cos_x_q * -48.916164)"
+  },
+  {
+    "epoch": 6999,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 49.9779167175293,
+    "corr_with_x": 0.02090042798403981,
+    "sr_complexity": 16,
+    "sr_r2": 0.07253569629134249,
+    "sr_loss": 44.633945,
+    "sr_equation": "0.23295262 + (((cos(b * 3.9267433) + cos(cos(b) * 26.105347)) / 0.46460506) + 9.652466)"
+  },
+  {
+    "epoch": 10499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 54.78920364379883,
+    "corr_with_x": 0.03805483121620035,
+    "sr_complexity": 18,
+    "sr_r2": 0.1292352438120885,
+    "sr_loss": 47.071514,
+    "sr_equation": "(cos(cos_x_q) * (((sin(x * 9.39913) + cos(cos_x_q * 20.600927)) * 2.8942559) + 2.8942559)) * 1.1493462"
+  },
+  {
+    "epoch": 13499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 84.42642211914062,
+    "corr_with_x": 0.002182029743046507,
+    "sr_complexity": 16,
+    "sr_r2": 0.08894968790029445,
+    "sr_loss": 71.375404,
+    "sr_equation": "sin(sin_x_q * -5.6493287) * ((sin_x_q + sin_x_q) + (sin(sin(x * 3.2009478)) * -8.106174))"
+  },
+  {
+    "epoch": 16999,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 148.2984619140625,
+    "corr_with_x": 0.021983350143202955,
+    "sr_complexity": 14,
+    "sr_r2": 0.05669525811143217,
+    "sr_loss": 127.88645,
+    "sr_equation": "(sin((((-2.2491806 / cos_x_q) / cos_x_q) + 0.006902762) / 0.034918122) * 5.058813) - -1.8872787"
+  },
+  {
+    "epoch": 20499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 91.96743774414062,
+    "corr_with_x": 0.026099855724133814,
+    "sr_complexity": 20,
+    "sr_r2": 0.2308229670508588,
+    "sr_loss": 63.61871,
+    "sr_equation": "-0.38169166 + ((cos(((0.36356822 + -0.08858666) / cos_x_q) / cos(-28.74918 / cos_x_q)) - -0.08858666) / cos(17.70058 / cos_x_q))"
+  },
+  {
+    "epoch": 23999,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 126.55364227294922,
+    "corr_with_x": 0.016972761309916266,
+    "sr_complexity": 20,
+    "sr_r2": 0.17464027250110215,
+    "sr_loss": 77.647705,
+    "sr_equation": "((cos(-12.323418 / cos_x_q) * 2.7582133) - cos((-12.337874 / cos_x_q) / cos_x_q)) * (cos(-12.351057 / cos_x_q) + 2.7586508)"
+  },
+  {
+    "epoch": 26999,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 160.7113037109375,
+    "corr_with_x": 0.03471020220176817,
+    "sr_complexity": 20,
+    "sr_r2": 0.1806669627761055,
+    "sr_loss": 99.845215,
+    "sr_equation": "((cos((x - sin(x * 0.890764)) * 0.8983146) + sin(sin(sin(x / -0.64147943)))) / 0.12511311) - 2.025923"
+  },
+  {
+    "epoch": 30499,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 86.69454956054688,
+    "corr_with_x": 0.06260795364887578,
+    "sr_complexity": 18,
+    "sr_r2": 0.18522776666418483,
+    "sr_loss": 58.93934,
+    "sr_equation": "(-0.9497732 - ((cos_x_q * (cos(x * -1.6353569) + cos(-0.9497732 * x))) / -0.13445783)) - cos(x)"
+  },
+  {
+    "epoch": 33999,
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 153.5010986328125,
+    "corr_with_x": 0.06130303152466237,
+    "sr_complexity": 20,
+    "sr_r2": 0.33027454840224346,
+    "sr_loss": 102.41739,
+    "sr_equation": "((sin_x_q + 9.85956) - sin_x_q) * ((cos(sin_x_q * (16.426622 / cos(cos(sin_x_q * 14.133344)))) + 18.065147) - 18.108286)"
+  },
+  {
+    "epoch": "final",
+    "dim": 54,
+    "layer": "pre_unembed",
+    "variance": 96.29222106933594,
+    "corr_with_x": 0.06547802004852118,
+    "sr_complexity": 20,
+    "sr_r2": 0.18321018624335073,
+    "sr_loss": 64.49898,
+    "sr_equation": "(cos((27.344082 / cos_x_q) / (cos_x_q / 6.3536816)) / (((cos_x_q / 35.090984) / 6.3536816) / (cos_x_q / 27.344082))) + -0.058029246"
+  }
+]

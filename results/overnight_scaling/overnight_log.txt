@@ -1,0 +1,138 @@
+[2026-09-14 20:48:55] ================================================================================
+[2026-09-14 20:48:55] OVERNIGHT CRT-BOTH SCALING SWEEP
+[2026-09-14 20:48:55] Total experiments: 8
+[2026-09-14 20:48:55] Results dir: /Users/davidsvensson/Desktop/dlp_grokking/results/overnight_scaling
+[2026-09-14 20:48:55] ================================================================================
+[2026-09-14 20:48:55] 
+Experiment 1/8: M04_p337_lr3e4 (budget=3600s)
+[2026-09-14 20:48:55]   START M04_p337_lr3e4: primes=[337], model=M04, lr=0.0003, tf=0.3, epochs=20000, budget=3600s
+[2026-09-14 21:48:56]   TIMEOUT M04_p337_lr3e4 after 3601s (budget=3600s)
+[2026-09-14 21:48:56]   DONE M04_p337_lr3e4: best=0.2284, grokked=False, epochs=9000, elapsed=3601s
+[2026-09-14 21:48:56]   Cumulative elapsed: 3601s / 43200s (1.0h / 12h)
+[2026-09-14 21:48:56] 
+Experiment 2/8: M04_p601_lr1e4 (budget=7200s)
+[2026-09-14 21:48:56]   START M04_p601_lr1e4: primes=[601], model=M04, lr=0.0001, tf=0.3, epochs=15000, budget=7200s
+[2026-09-14 22:53:27]   FINISH M04_p601_lr1e4 (exit code 0) after 3871s
+[2026-09-14 22:53:27]   DONE M04_p601_lr1e4: best=0.0018, grokked=False, epochs=15000, elapsed=3871s
+[2026-09-14 22:53:27]   Cumulative elapsed: 7471s / 43200s (2.1h / 12h)
+[2026-09-14 22:53:27] 
+Experiment 3/8: M06_p337_lr3e4 (budget=5400s)
+[2026-09-14 22:53:27]   START M06_p337_lr3e4: primes=[337], model=M06, lr=0.0003, tf=0.3, epochs=20000, budget=5400s
+[2026-09-15 00:23:28]   TIMEOUT M06_p337_lr3e4 after 5401s (budget=5400s)
+[2026-09-15 00:23:28]   DONE M06_p337_lr3e4: best=0.9924, grokked=False, epochs=8000, elapsed=5401s
+[2026-09-15 00:23:28]   Cumulative elapsed: 12873s / 43200s (3.6h / 12h)
+[2026-09-15 00:23:28] 
+Experiment 4/8: M06_p601_lr1e4 (budget=7200s)
+[2026-09-15 00:23:28]   START M06_p601_lr1e4: primes=[601], model=M06, lr=0.0001, tf=0.3, epochs=15000, budget=7200s
+[2026-09-15 02:01:59]   FINISH M06_p601_lr1e4 (exit code 0) after 5911s
+[2026-09-15 02:01:59]   DONE M06_p601_lr1e4: best=0.0018, grokked=False, epochs=15000, elapsed=5911s
+[2026-09-15 02:01:59]   Cumulative elapsed: 18784s / 43200s (5.2h / 12h)
+[2026-09-15 02:01:59] 
+Experiment 5/8: M07_p337_lr3e4 (budget=7200s)
+[2026-09-15 02:01:59]   START M07_p337_lr3e4: primes=[337], model=M07, lr=0.0003, tf=0.3, epochs=20000, budget=7200s
+[2026-09-15 02:02:29]   FINISH M07_p337_lr3e4 (exit code 2) after 30s
+[2026-09-15 02:02:29]   DONE M07_p337_lr3e4: best=0.0000, grokked=False, epochs=0, elapsed=30s
+[2026-09-15 02:02:29]   Cumulative elapsed: 18814s / 43200s (5.2h / 12h)
+[2026-09-15 02:02:29] 
+Experiment 6/8: M04_p1201_lr3e5 (budget=14400s)
+[2026-09-15 02:02:29]   START M04_p1201_lr3e5: primes=[1201], model=M04, lr=3e-05, tf=0.3, epochs=8000, budget=14400s
+[2026-09-15 02:20:29]   FINISH M04_p1201_lr3e5 (exit code 1) after 1080s
+[2026-09-15 02:20:29]   DONE M04_p1201_lr3e5: best=0.0009, grokked=False, epochs=0, elapsed=1080s
+[2026-09-15 02:20:29]   Cumulative elapsed: 19894s / 43200s (5.5h / 12h)
+[2026-09-15 02:20:29] 
+Experiment 7/8: M05_p337_lr3e4 (budget=5400s)
+[2026-09-15 02:20:29]   START M05_p337_lr3e4: primes=[337], model=M05, lr=0.0003, tf=0.4, epochs=20000, budget=5400s
+[2026-09-15 03:50:31]   TIMEOUT M05_p337_lr3e4 after 5401s (budget=5400s)
+[2026-09-15 03:50:31]   DONE M05_p337_lr3e4: best=0.9999, grokked=False, epochs=8000, elapsed=5401s
+[2026-09-15 03:50:31]   Cumulative elapsed: 25296s / 43200s (7.0h / 12h)
+[2026-09-15 03:50:31] 
+Experiment 8/8: M04_p337_tf50_lr3e4 (budget=5400s)
+[2026-09-15 03:50:31]   START M04_p337_tf50_lr3e4: primes=[337], model=M04, lr=0.0003, tf=0.5, epochs=20000, budget=5400s
+[2026-09-15 05:20:32]   TIMEOUT M04_p337_tf50_lr3e4 after 5401s (budget=5400s)
+[2026-09-15 05:20:32]   DONE M04_p337_tf50_lr3e4: best=0.9560, grokked=False, epochs=7400, elapsed=5401s
+[2026-09-15 05:20:32]   Cumulative elapsed: 30697s / 43200s (8.5h / 12h)
+[2026-09-15 05:20:32] 
+================================================================================
+[2026-09-15 05:20:32] OVERNIGHT SWEEP COMPLETE
+[2026-09-15 05:20:32] ================================================================================
+[2026-09-15 05:20:32] 
+Results summary (8 experiments):
+[2026-09-15 05:20:32]   M04_p337_lr3e4: 0.2284 (FAILED), 9000 epochs, 3601s
+[2026-09-15 05:20:32]   M04_p601_lr1e4: 0.0018 (FAILED), 15000 epochs, 3871s
+[2026-09-15 05:20:32]   M06_p337_lr3e4: 0.9924 (FAILED), 8000 epochs, 5401s
+[2026-09-15 05:20:32]   M06_p601_lr1e4: 0.0018 (FAILED), 15000 epochs, 5911s
+[2026-09-15 05:20:32]   M07_p337_lr3e4: 0.0000 (FAILED), 0 epochs, 30s
+[2026-09-15 05:20:32]   M04_p1201_lr3e5: 0.0009 (FAILED), 0 epochs, 1080s
+[2026-09-15 05:20:32]   M05_p337_lr3e4: 0.9999 (FAILED), 8000 epochs, 5401s
+[2026-09-15 05:20:32]   M04_p337_tf50_lr3e4: 0.9560 (FAILED), 7400 epochs, 5401s
+[2026-09-15 05:20:32] 
+Full results saved to /Users/davidsvensson/Desktop/dlp_grokking/results/overnight_scaling/results_summary.json
+[2026-09-15 07:03:57] ================================================================================
+[2026-09-15 07:03:57] OVERNIGHT CRT-BOTH SCALING SWEEP
+[2026-09-15 07:03:57] Total experiments: 8
+[2026-09-15 07:03:57] Results dir: /Users/davidsvensson/Desktop/dlp_grokking/results/overnight_scaling
+[2026-09-15 07:03:57] ================================================================================
+[2026-09-15 07:03:57] 
+Experiment 1/8: M04_p601_lr3e4 (budget=7200s)
+[2026-09-15 07:03:57]   START M04_p601_lr3e4: primes=[601], model=M04, lr=0.0003, tf=0.3, epochs=15000, budget=7200s
+[2026-09-15 08:07:57]   FINISH M04_p601_lr3e4 (exit code 0) after 3841s
+[2026-09-15 08:07:57]   DONE M04_p601_lr3e4: best=0.0018, grokked=False, epochs=15000, elapsed=3841s
+[2026-09-15 08:07:57]   Cumulative elapsed: 3841s / 43200s (1.1h / 12h)
+[2026-09-15 08:07:57] 
+Experiment 2/8: M06_p601_lr3e4 (budget=7200s)
+[2026-09-15 08:07:57]   START M06_p601_lr3e4: primes=[601], model=M06, lr=0.0003, tf=0.3, epochs=15000, budget=7200s
+[2026-09-15 10:08:14]   TIMEOUT M06_p601_lr3e4 after 7216s (budget=7200s)
+[2026-09-15 10:08:14]   DONE M06_p601_lr3e4: best=0.0019, grokked=False, epochs=14800, elapsed=7216s
+[2026-09-15 10:08:14]   Cumulative elapsed: 11057s / 43200s (3.1h / 12h)
+[2026-09-15 10:08:14] 
+Experiment 3/8: M04_p337_tf40_lr3e4 (budget=5400s)
+[2026-09-15 10:08:14]   START M04_p337_tf40_lr3e4: primes=[337], model=M04, lr=0.0003, tf=0.4, epochs=20000, budget=5400s
+[2026-09-15 11:38:15]   TIMEOUT M04_p337_tf40_lr3e4 after 5401s (budget=5400s)
+[2026-09-15 11:38:15]   DONE M04_p337_tf40_lr3e4: best=0.2095, grokked=False, epochs=10800, elapsed=5401s
+[2026-09-15 11:38:15]   Cumulative elapsed: 16458s / 43200s (4.6h / 12h)
+[2026-09-15 11:38:15] 
+Experiment 4/8: M07_p337_lr3e4 (budget=7200s)
+[2026-09-15 11:38:15]   START M07_p337_lr3e4: primes=[337], model=M07, lr=0.0003, tf=0.3, epochs=20000, budget=7200s
+[2026-09-15 11:46:15]   GROKKED M07_p337_lr3e4: best=0.9629, epochs=800 (from metrics)
+[2026-09-15 11:46:15]   DONE M07_p337_lr3e4: best=0.9629, grokked=True, epochs=800, elapsed=480s
+[2026-09-15 11:46:15]   Cumulative elapsed: 16938s / 43200s (4.7h / 12h)
+[2026-09-15 11:46:15] 
+Experiment 5/8: M04_p337_tf50_lr3e4_s123 (budget=5400s)
+[2026-09-15 11:46:15]   START M04_p337_tf50_lr3e4_s123: primes=[337], model=M04, lr=0.0003, tf=0.5, epochs=20000, budget=5400s
+[2026-09-15 13:16:25]   TIMEOUT M04_p337_tf50_lr3e4_s123 after 5410s (budget=5400s)
+[2026-09-15 13:16:25]   DONE M04_p337_tf50_lr3e4_s123: best=0.0032, grokked=False, epochs=12400, elapsed=5410s
+[2026-09-15 13:16:25]   Cumulative elapsed: 22348s / 43200s (6.2h / 12h)
+[2026-09-15 13:16:25] 
+Experiment 6/8: M05_p601_lr5e4 (budget=7200s)
+[2026-09-15 13:16:25]   START M05_p601_lr5e4: primes=[601], model=M05, lr=0.0005, tf=0.3, epochs=15000, budget=7200s
+[2026-09-15 14:33:26]   FINISH M05_p601_lr5e4 (exit code 0) after 4621s
+[2026-09-15 14:33:26]   DONE M05_p601_lr5e4: best=0.0017, grokked=False, epochs=15000, elapsed=4621s
+[2026-09-15 14:33:26]   Cumulative elapsed: 26969s / 43200s (7.5h / 12h)
+[2026-09-15 14:33:26] 
+Experiment 7/8: M08_p337_lr3e4 (budget=7200s)
+[2026-09-15 14:33:26]   START M08_p337_lr3e4: primes=[337], model=M08, lr=0.0003, tf=0.3, epochs=20000, budget=7200s
+[2026-09-15 14:38:26]   GROKKED M08_p337_lr3e4: best=0.9972, epochs=400 (from metrics)
+[2026-09-15 14:38:26]   DONE M08_p337_lr3e4: best=0.9972, grokked=True, epochs=400, elapsed=300s
+[2026-09-15 14:38:26]   Cumulative elapsed: 27269s / 43200s (7.6h / 12h)
+[2026-09-15 14:38:26] 
+Experiment 8/8: M04_p601_tf50_lr3e4 (budget=7200s)
+[2026-09-15 14:38:26]   START M04_p601_tf50_lr3e4: primes=[601], model=M04, lr=0.0003, tf=0.5, epochs=15000, budget=7200s
+[2026-09-15 16:38:47]   TIMEOUT M04_p601_tf50_lr3e4 after 7222s (budget=7200s)
+[2026-09-15 16:38:47]   DONE M04_p601_tf50_lr3e4: best=0.0018, grokked=False, epochs=9200, elapsed=7222s
+[2026-09-15 16:38:47]   Cumulative elapsed: 34491s / 43200s (9.6h / 12h)
+[2026-09-15 16:38:47] 
+================================================================================
+[2026-09-15 16:38:47] OVERNIGHT SWEEP COMPLETE
+[2026-09-15 16:38:47] ================================================================================
+[2026-09-15 16:38:47] 
+Results summary (8 experiments):
+[2026-09-15 16:38:47]   M04_p601_lr3e4: 0.0018 (FAILED), 15000 epochs, 3841s
+[2026-09-15 16:38:47]   M06_p601_lr3e4: 0.0019 (FAILED), 14800 epochs, 7216s
+[2026-09-15 16:38:47]   M04_p337_tf40_lr3e4: 0.2095 (FAILED), 10800 epochs, 5401s
+[2026-09-15 16:38:47]   M07_p337_lr3e4: 0.9629 (GROKKED), 800 epochs, 480s
+[2026-09-15 16:38:47]   M04_p337_tf50_lr3e4_s123: 0.0032 (FAILED), 12400 epochs, 5410s
+[2026-09-15 16:38:47]   M05_p601_lr5e4: 0.0017 (FAILED), 15000 epochs, 4621s
+[2026-09-15 16:38:47]   M08_p337_lr3e4: 0.9972 (GROKKED), 400 epochs, 300s
+[2026-09-15 16:38:47]   M04_p601_tf50_lr3e4: 0.0018 (FAILED), 9200 epochs, 7222s
+[2026-09-15 16:38:47] 
+Full results saved to /Users/davidsvensson/Desktop/dlp_grokking/results/overnight_scaling/results_summary.json

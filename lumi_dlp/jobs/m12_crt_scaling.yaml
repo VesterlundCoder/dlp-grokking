@@ -1,0 +1,212 @@
+# M12 CRT-BOTH Scaling — 10 runs across 5 power-of-2 primes x 2 train fractions
+# Tests how the largest fast-grokking model (M12, 14.4M params) groks with CRT-BOTH
+# representation across increasing primes and dataset sizes.
+#
+# Primes selected for power-of-2 structure in q=p-1 AND balanced coprime CRT split:
+#   p=113:  q=112  = 7  x 16  (ratio 2.29, space 6,272)
+#   p=241:  q=240  = 15 x 16  (ratio 1.07, space 28,800)
+#   p=337:  q=336  = 16 x 21  (ratio 1.31, space 56,448)
+#   p=601:  q=600  = 24 x 25  (ratio 1.04, space 180,000)
+#   p=1201: q=1200 = 25 x 48  (ratio 1.92, space 720,000)
+#
+# Note: p=257 (q=256=2^8) excluded — no coprime split possible (pure power of 2).
+#
+# All jobs use M12 (d_model=768, n_heads=24, n_layers=2, ~14.4M params).
+# WD auto-scales to wd_max=0.15 (floor) since M12 core params >> 393K anchor.
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # === p=113 (baseline, q=112=7x16) ===
+  - name: M12_CRT_p113_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p113_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=241 (q=240=15x16) ===
+  - name: M12_CRT_p241_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 241
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p241_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 241
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=337 (q=336=16x21) ===
+  - name: M12_CRT_p337_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 337
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p337_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 337
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=601 (q=600=24x25) ===
+  - name: M12_CRT_p601_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 601
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p601_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 601
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=1201 (q=1200=25x48) ===
+  - name: M12_CRT_p1201_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 1201
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p1201_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 1201
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42

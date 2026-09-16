@@ -1,0 +1,236 @@
+# SCRAMBLED Multi-Seed Verification + Train-Fraction Sweep
+# Tests whether SCRAMBLED consistently groks faster than CRT-BOTH
+# Also runs train-fraction sweep for H4 (N_crit for RAW vs CRT-BOTH)
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # --- SCRAMBLED multi-seed (verify speed advantage) ---
+  - name: SCRAMBLED_p113_s123
+    type: crt
+    variant: SCRAMBLED
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: SCRAMBLED_p113_s7
+    type: crt
+    variant: SCRAMBLED
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 7
+
+  - name: SCRAMBLED_p113_s456
+    type: crt
+    variant: SCRAMBLED
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 456
+
+  - name: SCRAMBLED_p113_s789
+    type: crt
+    variant: SCRAMBLED
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 789
+
+  # --- Train-fraction sweep: CRT-BOTH (should grok at low fracs) ---
+  - name: CRT-BOTH_p113_f0.10_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.10
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-BOTH_p113_f0.15_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.15
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-BOTH_p113_f0.20_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.20
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-BOTH_p113_f0.25_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.25
+    epochs: 100000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # --- Train-fraction sweep: RAW (needs high fracs to grok) ---
+  - name: RAW_p113_f0.40_s42
+    type: crt
+    variant: RAW
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.40
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: RAW_p113_f0.50_s42
+    type: crt
+    variant: RAW
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.50
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: RAW_p113_f0.60_s42
+    type: crt
+    variant: RAW
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: RAW_p113_f0.70_s42
+    type: crt
+    variant: RAW
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.70
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42

@@ -1,0 +1,11 @@
+{
+  "variant": "CRT-BOTH",
+  "seed": 42,
+  "total_epochs": 3250,
+  "best_test_acc": 0.9965880893300249,
+  "mem_epoch": 130,
+  "n_params": 428277,
+  "n_core": 396544,
+  "train_size": 1612,
+  "test_size": 3224
+}

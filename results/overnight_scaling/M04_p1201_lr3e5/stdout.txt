@@ -1,0 +1,94 @@
+Device: mps
+Curves: [1201] (1 curves, max_p=1201)
+Variant: CRT-BOTH
+  Curve 0 (p=1201): CRT factors 25 x 48
+Total solution space: 384000 across 1 curves
+  Curve 0 (p=1201): space=384000, 320 primitive roots
+Train: 115200, Test: 268800
+Vocab size: 1206, max_len: 10
+/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Model: M04, d_model=128, n_heads=4, n_layers=2
+Params: 707,766 total, 396,544 core
+WD: start=0.05, max=0.2987, step=0.05
+
+Starting training: 8000 epochs
+================================================================================
+  Ep      0 | tr=0.0007 te=0.0009 loss=7.3939 wd=0.0500 t=186.1s | c0(p=1201)=0.00
+Traceback (most recent call last):
+  File "/Users/davidsvensson/Desktop/dlp_grokking/experiments/multicurve/run_multicurve.py", line 822, in <module>
+    main()
+    ~~~~^^
+  File "/Users/davidsvensson/Desktop/dlp_grokking/experiments/multicurve/run_multicurve.py", line 799, in main
+    train_multicurve(
+    ~~~~~~~~~~~~~~~~^
+        primes=args.primes,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        variant=args.variant,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/davidsvensson/Desktop/dlp_grokking/experiments/multicurve/run_multicurve.py", line 593, in train_multicurve
+    logits = model(xb)
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/davidsvensson/Desktop/dlp_grokking/src/models.py", line 51, in forward
+    h = self.transformer(h)
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py", line 524, in forward
+    output = mod(
+        output,
+    ...<2 lines>...
+        src_key_padding_mask=src_key_padding_mask_for_layers,
+    )
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py", line 928, in forward
+    x = x + self._sa_block(
+            ~~~~~~~~~~~~~~^
+        self.norm1(x), src_mask, src_key_padding_mask, is_causal=is_causal
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py", line 949, in _sa_block
+    x = self.self_attn(
+        ~~~~~~~~~~~~~~^
+        x,
+        ^^
+    ...<5 lines>...
+        is_causal=is_causal,
+        ^^^^^^^^^^^^^^^^^^^^
+    )[0]
+    ^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 1488, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<17 lines>...
+        is_causal=is_causal,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/functional.py", line 6307, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+              ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidsvensson/Desktop/rd-lumi-z3/venv/lib/python3.13/site-packages/torch/nn/functional.py", line 5699, in _in_projection_packed
+    proj = linear(q, w, b)
+RuntimeError: MPS backend out of memory (MPS allocated: 41.09 GiB, other allocations: 764.47 MiB, max allowed: 42.43 GiB). Tried to allocate 1.65 GiB on private pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).

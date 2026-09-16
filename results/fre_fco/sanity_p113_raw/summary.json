@@ -1,0 +1,15 @@
+{
+  "prime": 113,
+  "use_crt": false,
+  "base": 16,
+  "M": 2,
+  "d_model": 128,
+  "P_total": 405920,
+  "P_core": 396544,
+  "best_test_acc": 0.06048387096774194,
+  "grokked": false,
+  "mem_epoch": 200,
+  "total_epochs": 499,
+  "elapsed_s": 32.26297879219055,
+  "early_stopped": false
+}

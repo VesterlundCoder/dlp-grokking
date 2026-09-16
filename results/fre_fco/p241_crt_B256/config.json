@@ -1,0 +1,32 @@
+{
+  "prime": 241,
+  "base": 256,
+  "M": 1,
+  "d_model": 128,
+  "n_heads": 4,
+  "n_layers": 2,
+  "max_len": 9,
+  "epochs": 20000,
+  "lr": 0.001,
+  "wd_start": 0.05,
+  "wd_max": 0.2986564086364556,
+  "wd_step": 0.05,
+  "wd_ramp_interval": 1000,
+  "train_frac": 0.3,
+  "train_size": 4608,
+  "test_size": 9216,
+  "seed": 42,
+  "use_crt": true,
+  "use_rich_fco": false,
+  "crt_factors": [
+    15,
+    16
+  ],
+  "batch_size": 0,
+  "P_input": 34432,
+  "P_core": 396544,
+  "P_output": 33024,
+  "P_total": 464000,
+  "space_size": 15360,
+  "device": "mps"
+}

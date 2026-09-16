@@ -1,0 +1,11 @@
+{
+  "method": "dim54_pre_unembed_L3_free",
+  "equation": "cos((cos(sin(cos(a / -0.6274716))) * cos(a / -0.6274716)) + (16.042366 / (-10.215863 / b))) * 6.0220823",
+  "r2": 0.043646975756516326,
+  "loss": 80.04095,
+  "complexity": 20,
+  "feature_names": [
+    "a",
+    "b"
+  ]
+}

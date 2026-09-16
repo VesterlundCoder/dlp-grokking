@@ -1,0 +1,2 @@
+{"epoch": 0, "train_acc": 0.0012152777777777778, "test_acc": 0.0015625, "train_loss": 6.831859588623047, "weight_decay": 0.05, "elapsed_s": 261.81235098838806, "best_test_acc": 0.0015625, "per_curve_test": {"0": 0.0015625}}
+{"epoch": 200, "train_acc": 0.03302083333333333, "test_acc": 0.024211309523809524, "train_loss": 4.800399303436279, "weight_decay": 0.05, "elapsed_s": 715.5604231357574, "best_test_acc": 0.024211309523809524, "per_curve_test": {"0": 0.024211309523809524}}

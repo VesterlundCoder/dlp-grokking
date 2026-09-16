@@ -1,0 +1,21 @@
+{
+  "method": "dim12_pre_unembed_L3_alg",
+  "equation": "(((-0.26218763 - b_inv) + (sin(x) / -3.4476542)) / (0.12829657 - b_inv)) + (cos((-1.1964207 / (b_inv - 0.015260209)) / (cos_x_q - b_inv)) / 0.12829657)",
+  "r2": 0.2107054296754315,
+  "loss": 111.32689,
+  "complexity": 25,
+  "feature_names": [
+    "a",
+    "b",
+    "a_inv",
+    "b_inv",
+    "x",
+    "cos_a_q",
+    "sin_a_q",
+    "cos_b_q",
+    "sin_b_q",
+    "cos_x_q",
+    "sin_x_q"
+  ],
+  "q": 112
+}

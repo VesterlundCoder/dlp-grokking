@@ -1,0 +1,223 @@
+# Capacity Scaling Study — DLP grokking on p=113
+# Models M01-M12 on p=113, 2 layers, WD auto-scaling
+# Each job runs on a single GPU (1 task per GPU)
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # --- Small models (M01-M06): fast grokking, ~minutes on MI250X ---
+  - name: M01_p113_s42
+    type: standard
+    model_id: M01
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 200000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M02_p113_s42
+    type: standard
+    model_id: M02
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 200000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M03_p113_s42
+    type: standard
+    model_id: M03
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 200000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 2000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M04_p113_s42
+    type: standard
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M05_p113_s42
+    type: standard
+    model_id: M05
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M06_p113_s42
+    type: standard
+    model_id: M06
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 10
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # --- Medium models (M07-M12): longer grokking, ~hours on MI250X ---
+  - name: M07_p113_s42
+    type: standard
+    model_id: M07
+    prime: 113
+    n_layers: 2
+    train_frac: 0.35
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M08_p113_s42
+    type: standard
+    model_id: M08
+    prime: 113
+    n_layers: 2
+    train_frac: 0.40
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M09_p113_s42
+    type: standard
+    model_id: M09
+    prime: 113
+    n_layers: 2
+    train_frac: 0.45
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M10_p113_s42
+    type: standard
+    model_id: M10
+    prime: 113
+    n_layers: 2
+    train_frac: 0.50
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M11_p113_s42
+    type: standard
+    model_id: M11
+    prime: 113
+    n_layers: 2
+    train_frac: 0.55
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_p113_s42
+    type: standard
+    model_id: M12
+    prime: 113
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42

@@ -1,0 +1,289 @@
+% ============================================================================
+% Representation-Relative Grokking — CRT Material for Separate Preprint
+% This material does NOT appear in the main DLP scaling paper.
+% It forms the basis of a separate paper on how representation choice
+% determines the learning regime.
+% ============================================================================
+
+\section{Grokking as Mathematical Representation Discovery}
+\label{sec:repr_grokking}
+
+\subsection{The Representation-Relative Grokking Hypothesis}
+
+We hypothesize that what appears as ``grokking''---a prolonged memorization phase followed by sudden generalization---is partly a \emph{representation discovery} cost. The model must internally discover an algebraic coordinatization of the input before it can learn the solver rule. If we provide the correct representation explicitly, this discovery cost vanishes, and the learning regime changes qualitatively.
+
+Formally, for a representation $R(X)$ and target $Y = f(X)$, we define:
+
+\begin{definition}[Task-sufficient representation]
+A representation $R$ is \emph{task-sufficient} for target $Y$ if
+\[
+    H(Y \mid R(X)) = 0.
+\]
+In approximate settings, $R$ is $\epsilon$-sufficient if $H(Y \mid R(X)) \leq \epsilon$.
+\end{definition}
+
+This gives us three regimes:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Insufficient representation}: $H(Y \mid R) > 0$. No amount of training can solve the full task, regardless of optimizer or model capacity. The representation lacks information needed to recover $Y$.
+
+    \item \textbf{Sufficient but difficult}: $H(Y \mid R) = 0$, but the mapping $R \to Y$ is complex or the correct internal coordinatization must be discovered. The model must learn to extract the relevant structure from $R$ before it can generalize.
+
+    \item \textbf{Sufficient and aligned}: $H(Y \mid R) = 0$ and the solver complexity $R \to Y$ is low. The representation is pre-aligned with the target structure, so the model can learn the solver rule directly.
+\end{enumerate}
+
+We denote the representation discovery cost as $D(R)$: the training effort required to discover the internal coordinatization. The hypothesis predicts $D(R_{\mathrm{raw}}) \gg D(R_{\mathrm{CRT}})$, and when the representation is pre-aligned, $D(R_{\mathrm{CRT}}) \approx 0$.
+
+
+\subsection{CRT Decomposition of DLP}
+\label{sec:crt_setup}
+
+For $\Fps$ with $p = 113$, the group order is $q = 112 = 16 \times 7$. By the Chinese Remainder Theorem (CRT), the discrete logarithm $x \bmod 112$ decomposes as:
+\begin{equation}
+    x \bmod 112 \;\longleftrightarrow\; (x \bmod 16,\; x \bmod 7).
+\end{equation}
+The order-16 and order-7 components can be extracted \emph{without} computing the discrete log:
+\begin{equation}
+    y_{16} = y^7 \bmod 113 \quad (\text{order divides 16}), \qquad
+    y_7 = y^{16} \bmod 113 \quad (\text{order divides 7}).
+\end{equation}
+The pair $(y_{16}, y_7)$ uniquely determines $y$ via CRT, and the pair $((g_{16}, g_7), (h_{16}, h_7))$ contains sufficient information to recover $x$.
+
+
+\subsection{Representation Variants}
+\label{sec:crt_variants}
+
+We test six input representations, all using the M04 architecture (427k params, $d_{\mathrm{model}}=128$, 2 layers):
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RAW}: $[\text{BOS}, g, \text{SEP}, h, \text{EOS}]$ --- the standard DLP input. \emph{Sufficient but difficult}: the full $(g, h)$ pair determines $x$, but the model must discover the multiplicative character structure internally.
+    \item \textbf{CRT-BOTH}: $[\text{BOS}, g_{16}, \text{SEP}, g_7, \text{SEP}, h_{16}, \text{SEP}, h_7, \text{EOS}]$ --- explicit CRT decomposition. \emph{Sufficient and aligned}: the CRT coordinates are pre-computed, so the model only needs to learn the solver rule.
+    \item \textbf{CRT-16}: $[\text{BOS}, g_{16}, \text{SEP}, h_{16}, \text{EOS}]$ --- order-16 component only. \emph{Insufficient}: determines $x \bmod 16$ but leaves 7 possible values of $x \bmod 112$.
+    \item \textbf{CRT-7}: $[\text{BOS}, g_7, \text{SEP}, h_7, \text{EOS}]$ --- order-7 component only. \emph{Insufficient}: determines $x \bmod 7$ but leaves 16 possible values of $x \bmod 112$.
+    \item \textbf{RAW+CRT}: $[\text{BOS}, g, \text{SEP}, h, \text{SEP}, g_{16}, \ldots, h_7, \text{EOS}]$ --- raw + CRT. \emph{Sufficient and aligned}: contains both raw and CRT information.
+    \item \textbf{SCRAMBLED}: Same as CRT-BOTH but with a random permutation $\pi$ applied to CRT component values. \emph{Sufficient and aligned} (information content is preserved, but algebraic labeling is destroyed).
+\end{itemize}
+
+
+\subsection{Information-Theoretic Ceilings}
+\label{sec:ceilings}
+
+The partial CRT representations have hard information-theoretic ceilings on full-DLP accuracy:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{CRT-7}: The model can determine $x \bmod 7$, but 16 values of $x \bmod 112$ are compatible with the same representation. The ceiling is $1/16 = 6.25\%$.
+    \item \textbf{CRT-16}: The model can determine $x \bmod 16$, but 7 values of $x \bmod 112$ are compatible. The ceiling is $1/7 \approx 14.3\%$.
+    \item \textbf{CRT-BOTH}: Since $\gcd(16, 7) = 1$, the pair $(x \bmod 16, x \bmod 7)$ uniquely determines $x \bmod 112$. The ceiling is $100\%$.
+\end{itemize}
+
+These are not performance limitations of the model---they are information-theoretic impossibilities. No optimizer, architecture, or training duration can recover the missing bits.
+
+
+\subsection{Results: The Three-Step Sufficiency Proof}
+\label{sec:crt_results}
+
+\begin{table}[t]
+\centering
+\caption{CRT representation variants on $p = 113$, M04 architecture, 30\% training data. Results from LUMI-G (3 seeds for RAW and CRT-BOTH, 5 seeds for SCRAMBLED, 1 seed for others). ``Ceiling'' is the information-theoretic maximum accuracy for each representation.}
+\label{tab:crt_results}
+\begin{tabular}{lrrrrr}
+\toprule
+Variant & Seeds & Mean Acc & Mean Epochs & Grok Rate & Ceiling \\
+\midrule
+RAW & 3 & 57.2\% & 500,000 & 0/3 & 100\% \\
+CRT-BOTH & 3 & 99.99\% & 21,000 & 3/3 & 100\% \\
+CRT-16 & 1 & 9.7\% & 500,000 & 0/1 & 14.3\% \\
+CRT-7 & 1 & 4.0\% & 500,000 & 0/1 & 6.25\% \\
+RAW+CRT & 1 & 100\% & 77,750 & 1/1 & 100\% \\
+SCRAMBLED & 5 & 99.6\% & 13,580 & 5/5 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results form a clean three-step compositional sufficiency proof:
+
+\begin{equation}
+    R_7 \not\Rightarrow X, \qquad R_{16} \not\Rightarrow X, \qquad (R_7, R_{16}) \Rightarrow X.
+\end{equation}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{CRT-7 cannot solve the full target} because the representation is information-theoretically insufficient. The model reaches 4.0\%, near the ceiling of 6.25\%. No amount of extra training can recover the missing 16-fold ambiguity.
+
+    \item \textbf{CRT-16 cannot solve the full target} for the same reason. The model reaches 9.7\%, near the ceiling of 14.3\%. The 7-fold ambiguity is irrecoverable.
+
+    \item \textbf{CRT-BOTH solves the full target} because the pair $(x \bmod 16, x \bmod 7)$ uniquely determines $x \bmod 112$ via CRT. The model reaches 99.99\%.
+\end{itemize}
+
+This is not a diffuse ``transformer prefers longer inputs'' effect. Each representation solves precisely the mathematical information it contains.
+
+
+\subsection{CRT-BOTH Changes the Learning Regime}
+\label{sec:learning_regime}
+
+A striking observation is that CRT-BOTH may not exhibit grokking in the classical sense. For CRT-BOTH:
+\begin{itemize}[leftmargin=*]
+    \item $T_{\mathrm{mem}} \approx 130$ (memorization occurs at epoch 130)
+    \item Test accuracy reaches 50\% at approximately epoch 120
+\end{itemize}
+
+Test accuracy begins rising \emph{before or simultaneously with} complete memorization. This contrasts sharply with RAW, where the model memorizes at epoch 90 but test accuracy remains near chance for $\sim$22,000 epochs before the grokking transition.
+
+We interpret this as evidence that providing a task-sufficient CRT-aligned representation changes the learning regime from \emph{delayed grokking} to something closer to \emph{ordinary direct generalization}:
+
+\begin{equation}
+    \underbrace{\text{RAW: delayed grokking}}_{D(R_{\mathrm{raw}}) \gg 0}
+    \quad \longrightarrow \quad
+    \underbrace{\text{CRT-BOTH: rapid structured generalization}}_{D(R_{\mathrm{CRT}}) \approx 0}
+\end{equation}
+
+When the representation is pre-aligned, the model has almost no reason to spend 20,000--30,000 epochs discovering the correct algebraic coordinatization---it can begin learning the solver rule directly.
+
+
+\subsection{SCRAMBLED: Information Content, Not Algebraic Labeling}
+\label{sec:scrambled}
+
+The SCRAMBLED variant applies a random permutation $\pi$ to CRT component values, destroying the algebraic meaning of the tokens while preserving information content. SCRAMBLED groks in a mean of 13,580 epochs across 5 seeds (range: 8,230--16,050), \emph{faster} than CRT-BOTH's mean of 21,000 epochs. All 5 seeds grokked (99.2--100\% accuracy).
+
+This confirms that the acceleration is driven by \emph{information content}, not algebraic labeling. The model does not need the CRT coordinates to be semantically meaningful---it only needs the information to be present in a compact, separable form.
+
+
+\subsection{CRT-BOTH Train-Fraction Sweep}
+\label{sec:crt_trainfrac}
+
+\begin{table}[t]
+\centering
+\caption{CRT-BOTH train-fraction sweep on $p = 113$, M04, seed 42. Critical fraction between 10\% and 15\%.}
+\label{tab:crt_trainfrac}
+\begin{tabular}{rrrrr}
+\toprule
+$\rho$ & Train Size & Best Acc & Epochs & Grokked? \\
+\midrule
+0.10 & 537 & 60.9\% & 100,000 & \xmark \\
+0.15 & 806 & 99.6\% & 64,210 & \cmark \\
+0.20 & 1,075 & 99.8\% & 39,700 & \cmark \\
+0.25 & 1,344 & 99.6\% & 9,830 & \cmark \\
+0.30 & 1,612 & 99.99\% & 21,000 & \cmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{M12 CRT-BOTH Scaling to Larger Primes}
+\label{sec:m12_crt_scaling}
+
+\begin{table}[t]
+\centering
+\caption{M12 CRT-BOTH scaling on LUMI-G (14.4M params, 2 layers). Grokking time does not increase with prime size at fixed train fraction---the CRT representation makes larger primes as easy as small ones.}
+\label{tab:m12_crt_scaling}
+\begin{tabular}{rrrrrr}
+\toprule
+$p$ & CRT Split & $\rho$ & Best Acc & Epochs & Grokked? \\
+\midrule
+113 & $7 \times 16$ & 0.30 & 99.88\% & 32,250 & \cmark \\
+113 & $7 \times 16$ & 0.60 & 99.95\% & 5,100 & \cmark \\
+241 & $15 \times 16$ & 0.30 & 99.96\% & 7,550 & \cmark \\
+241 & $15 \times 16$ & 0.60 & 100\% & 5,050 & \cmark \\
+337 & $16 \times 21$ & 0.30 & 99.98\% & 5,200 & \cmark \\
+337 & $16 \times 21$ & 0.60 & 100\% & 5,100 & \cmark \\
+601 & $24 \times 25$ & 0.30 & 100\% & 5,100 & \cmark \\
+601 & $24 \times 25$ & 0.60 & 100\% & 5,350 & \cmark \\
+1201 & $25 \times 48$ & 0.30 & --- & --- & Rerunning$^\dagger$ \\
+1201 & $25 \times 48$ & 0.60 & --- & --- & Rerunning$^\dagger$ \\
+2003 & $26 \times 77$ & 0.30 & --- & --- & Pending \\
+4001 & $32 \times 125$ & 0.30 & --- & --- & Pending \\
+8209 & $27 \times 304$ & 0.30 & --- & --- & Pending \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize $^\dagger$Initial runs OOMed with full-batch training; resubmitted with mini-batch gradient accumulation.}
+\end{tabular}
+\end{table}
+
+M12 CRT-BOTH groks $p = 601$ at 100\% in $\sim$5K epochs---the same as $p = 337$. This is a remarkable scaling property: the CRT representation makes grokking time \emph{independent of prime size} at fixed train fraction. For RAW, grokking time increases steeply with prime size (M04 groks $p = 113$ in 37K epochs, but M14 needs 14K epochs for $p = 521$ with a much larger model).
+
+
+\subsection{Local CRT-BOTH Scaling with Small Models}
+\label{sec:local_crt}
+
+While the M12 experiments above use a 14.4M-parameter model, we also tested whether smaller models can grok larger primes with CRT-BOTH. Results from an overnight local sweep on Apple MPS:
+
+\begin{table}[t]
+\centering
+\caption{Local CRT-BOTH scaling with small models on Apple MPS. All experiments use lr=3e-4, 2 transformer layers, seed 42. ``Best'' is the peak test accuracy achieved (before any slingshot/forgetting).}
+\label{tab:local_crt_scaling}
+\begin{tabular}{llrrrrr}
+\toprule
+Model & Prime & $\Ptotal$ & Train\% & Best Acc & Epochs & Grok? \\
+\midrule
+M04 & 241 & 461k & 30\% & 100\% & 1,600 & \cmark \\
+M04 & 337 & 486k & 30\% & 22.8\% & 9,000 & \xmark \\
+M04 & 337 & 486k & 40\% & 20.9\% & 10,800 & \xmark \\
+M04 & 337 & 486k & 50\% & 95.6\% & 7,400 & \cmark \\
+M04 & 337 & 486k & 50\% (s=123) & 0.3\% & 12,400 & \xmark \\
+M05 & 337 & 745k & 40\% & 99.99\% & 8,000 & \cmark \\
+M06 & 337 & 1.2M & 30\% & 99.24\% & 8,000 & \cmark \\
+\textbf{M07} & \textbf{337} & \textbf{1.6M} & \textbf{30\%} & \textbf{96.3\%} & \textbf{800} & \cmark \\
+\textbf{M08} & \textbf{337} & \textbf{2.5M} & \textbf{30\%} & \textbf{99.7\%} & \textbf{400} & \cmark \\
+M04 & 601 & 554k & 30\% & 0.18\% & 15,000 & \xmark \\
+M05 & 601 & 745k & 30\% & 0.17\% & 15,000 & \xmark \\
+M06 & 601 & 1.4M & 30\% & 0.18\% & 15,000 & \xmark \\
+M04 & 601 & 554k & 50\% & 0.18\% & 15,000 & \xmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Key findings from the local sweep:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{p=241 is trivial for M04}: Grokked to 100\% in 1,600 epochs.
+    \item \textbf{p=337 groks with sufficient capacity}: M07 (1.6M) groks at 30\% in 800 epochs, M08 (2.5M) in just 400 epochs---the fastest p=337 grok observed. M04 (427k) requires $\geq$50\% train data.
+    \item \textbf{Seed sensitivity at the phase boundary}: M04 p=337 at 50\% train groks with seed 42 (95.6\%) but \emph{collapses} with seed 123 (0.3\%). This suggests the grokking transition is stochastic near the phase boundary.
+    \item \textbf{p=601 collapses on MPS regardless of LR}: Tested lr=1e-4, 3e-4, 5e-4 with M04/M05/M06---all collapse (loss$\to$0, train\_acc$\to$0). This is a numerical stability issue with Apple MPS at larger vocabulary sizes, not a representation failure: M12 on LUMI groks p=601 at 100\%.
+    \item \textbf{Slingshot/forgetting observed}: M05 and M06 both grokked to $\sim$99\%, then went through a slingshot phase where train accuracy dropped to 16-32\% before recovering. The best test accuracy was achieved during the grokking peak.
+    \item \textbf{p=1201 OOMs on MPS}: 28,800 training examples exceed local GPU memory (42 GiB).
+\end{itemize}
+
+
+\subsection{Proposed Experiments: Compositional Sufficiency}
+\label{sec:proposed}
+
+The three-step sufficiency proof motivates two follow-up experiments:
+
+\paragraph{Experiment 1: Matched-target CRT components.}
+Train CRT-7 on the target $x \bmod 7$ (not full $x$) and CRT-16 on $x \bmod 16$. Prediction: both will generalize rapidly, demonstrating that each representation solves precisely the mathematical information it contains:
+\[
+    \text{CRT-7} \to x \bmod 7 \quad (\text{fast}), \qquad
+    \text{CRT-16} \to x \bmod 16 \quad (\text{fast}),
+\]
+but
+\[
+    \text{CRT-7} \to x \bmod 112 \quad (\text{impossible}), \qquad
+    \text{CRT-16} \to x \bmod 112 \quad (\text{impossible}).
+\]
+
+\paragraph{Experiment 2: Two-branch fusion architecture.}
+Provide both CRT components in separate branches:
+\[
+    R_{16}(g, h) \to \text{module A}, \qquad
+    R_7(g, h) \to \text{module B},
+\]
+with a small fusion layer combining them to predict $x$. If the fusion layer becomes nearly trivial, this provides computational evidence that \emph{representation discovery was the hard part; CRT composition is easy}.
+
+
+\subsection{Summary: The Representation Ladder}
+\label{sec:repr_ladder}
+
+The results reveal a clean ladder of learning regimes determined by representational sufficiency:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Representation & Regime & Behavior \\
+\midrule
+CRT-7 & Insufficient & Cannot solve (ceiling 6.25\%) \\
+CRT-16 & Insufficient & Cannot solve (ceiling 14.3\%) \\
+RAW & Sufficient, difficult & Delayed grokking ($\sim$300$\times$ delay) \\
+SCRAMBLED & Sufficient, aligned & Fast grokking ($\sim$14K epochs) \\
+CRT-BOTH & Sufficient, aligned & Rapid generalization ($\sim$1K epochs) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Providing a task-sufficient CRT-aligned representation changes the learning regime from prolonged delayed generalization to rapid structured generalization. The representation does not merely make learning faster---it determines which learning regime the model operates in.

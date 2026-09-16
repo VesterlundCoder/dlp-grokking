@@ -1,0 +1,176 @@
+# CRT-BOTH Scaling Frontier — Push beyond p=1201
+# Tests how large M12 (14.4M params) can grok with CRT-BOTH representation.
+#
+# CRT splits (auto-computed by generalized coprime_factorization):
+#   p=1201: q=1200 = 25 x 48   (ratio 1.92, space 720,000)     [already running]
+#   p=2003: q=2002 = 26 x 77   (ratio 2.96, space ~154K)        [new]
+#   p=4001: q=4000 = 32 x 125  (ratio 3.91, space ~1.6M)        [new]
+#   p=8209: q=8208 = 27 x 304  (ratio 11.3, space ~6.9M)       [new]
+#
+# All jobs use M12 (d_model=768, n_heads=24, n_layers=2, ~14.4M params).
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # === p=1201 (q=1200=25x48) — resubmit with mini-batch (previously OOMed) ===
+  - name: M12_CRT_p1201_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 1201
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p1201_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 1201
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=2003 (q=2002=26x77) ===
+  - name: M12_CRT_p2003_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 2003
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p2003_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 2003
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=4001 (q=4000=32x125) ===
+  - name: M12_CRT_p4001_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 4001
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p4001_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 4001
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === p=8209 (q=8208=27x304) ===
+  - name: M12_CRT_p8209_f0.30_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 8209
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_CRT_p8209_f0.60_s42
+    type: crt
+    variant: CRT-BOTH
+    prime: 8209
+    model_id: M12
+    train_batch_size: 8192
+    n_layers: 2
+    train_frac: 0.60
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42

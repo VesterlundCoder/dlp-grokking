@@ -1,0 +1,13 @@
+{
+  "variant": "RAW",
+  "train_frac": 0.1,
+  "seed": 42,
+  "total_epochs": 19999,
+  "best_test_acc": 0.05765654060756355,
+  "mem_epoch": 50,
+  "grok_epoch": -1,
+  "grokked": false,
+  "train_size": 537,
+  "test_size": 4839,
+  "elapsed_s": 712.8687250614166
+}

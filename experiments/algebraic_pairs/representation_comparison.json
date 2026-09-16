@@ -1,0 +1,24 @@
+[
+  {
+    "variant": "RAW+CRT",
+    "seed": 42,
+    "total_epochs": 8790,
+    "best_test_acc": 0.9934863523573201,
+    "mem_epoch": 110,
+    "n_params": 428277,
+    "n_core": 396544,
+    "train_size": 1612,
+    "test_size": 3224
+  },
+  {
+    "variant": "SCRAMBLED",
+    "seed": 42,
+    "total_epochs": 2640,
+    "best_test_acc": 0.9990694789081885,
+    "mem_epoch": 100,
+    "n_params": 428277,
+    "n_core": 396544,
+    "train_size": 1612,
+    "test_size": 3224
+  }
+]

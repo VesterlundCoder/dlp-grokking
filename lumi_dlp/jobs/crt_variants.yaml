@@ -1,0 +1,196 @@
+# CRT Representation Variants — Algebraic Pairs on p=113
+# Tests representation-relative grokking hypothesis (Phase C / G3)
+# All use M04 architecture (d_model=128, 2 layers)
+project: dlp_grokking
+base_seed: 42
+jobs:
+  - name: RAW_p113_s42
+    type: crt
+    variant: RAW
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-BOTH_p113_s42
+    type: crt
+    variant: CRT-BOTH
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-16_p113_s42
+    type: crt
+    variant: CRT-16
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: CRT-7_p113_s42
+    type: crt
+    variant: CRT-7
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: RAW+CRT_p113_s42
+    type: crt
+    variant: RAW+CRT
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: SCRAMBLED_p113_s42
+    type: crt
+    variant: SCRAMBLED
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # Multi-seed for CRT-BOTH and RAW (key comparison)
+  - name: RAW_p113_s123
+    type: crt
+    variant: RAW
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: CRT-BOTH_p113_s123
+    type: crt
+    variant: CRT-BOTH
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: RAW_p113_s7
+    type: crt
+    variant: RAW
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 7
+
+  - name: CRT-BOTH_p113_s7
+    type: crt
+    variant: CRT-BOTH
+    model_id: M04
+    prime: 113
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 7

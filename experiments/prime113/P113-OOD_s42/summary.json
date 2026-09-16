@@ -1,0 +1,12 @@
+{
+  "label": "P113-OOD",
+  "seed": 42,
+  "total_epochs": 99999,
+  "best_test_acc": 0.024778761061946902,
+  "mem_epoch": -1,
+  "final_wd": 0.05,
+  "n_params": 427253,
+  "n_core": 396544,
+  "train_size": 7571,
+  "test_size": 5085
+}

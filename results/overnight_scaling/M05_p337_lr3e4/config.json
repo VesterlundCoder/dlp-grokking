@@ -1,0 +1,36 @@
+{
+  "primes": [
+    337
+  ],
+  "n_curves": 1,
+  "variant": "CRT-BOTH",
+  "crt_factors": {
+    "0": [
+      16,
+      21
+    ]
+  },
+  "model_id": "M05",
+  "d_model": 160,
+  "n_heads": 5,
+  "n_layers": 2,
+  "vocab_size": 342,
+  "max_len": 10,
+  "n_params": 729942,
+  "n_core": 618560,
+  "epochs": 20000,
+  "lr": 0.0003,
+  "wd_start": 0.05,
+  "wd_max": 0.23912589787312138,
+  "wd_step": 0.05,
+  "wd_ramp_interval": 1000,
+  "lr_drop_factor": 1.0,
+  "train_frac": 0.4,
+  "train_size": 12902,
+  "test_size": 19354,
+  "seed": 42,
+  "eval_interval": 200,
+  "checkpoint_interval": 5000,
+  "early_stop_patience": 50,
+  "early_stop_threshold": 0.99
+}

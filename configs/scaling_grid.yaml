@@ -1,0 +1,69 @@
+# DLP Grokking Scaling Study Configuration
+# L6 p=113, L=2, variable d_model (single-variable study)
+
+problem: L6
+prime: 113
+n_layers: 2
+epochs: 100000
+eval_interval: 10
+checkpoint_interval: 1000
+lr: 0.001
+train_frac: 0.3
+
+# Seeds
+seeds: [42, 123, 456]
+anchor_seeds: [42, 123, 456, 789, 2026]
+anchors: [M04, M09]
+
+# WD schedule
+wd_schedule:
+  start: 0.05
+  step: 0.05
+  acc_threshold: 0.05
+  auto_scale: true
+  anchor_p_core: 393000
+  min_wd: 0.10
+  max_wd: 0.30
+
+# Model grid (L=2, head_dim ≈ 32 where possible)
+models:
+  M01: {d_model: 56,  n_heads: 2,  location: local}
+  M02: {d_model: 80,  n_heads: 4,  location: local}
+  M03: {d_model: 104, n_heads: 4,  location: local}
+  M04: {d_model: 128, n_heads: 4,  location: local}
+  M05: {d_model: 160, n_heads: 5,  location: local}
+  M06: {d_model: 208, n_heads: 8,  location: local}
+  M07: {d_model: 256, n_heads: 8,  location: lumi}
+  M08: {d_model: 320, n_heads: 10, location: lumi}
+  M09: {d_model: 384, n_heads: 12, location: lumi}
+  M10: {d_model: 480, n_heads: 15, location: lumi}
+  M11: {d_model: 608, n_heads: 19, location: lumi}
+  M12: {d_model: 768, n_heads: 24, location: lumi}
+  M13: {d_model: 1024, n_heads: 32, location: lumi, prime: 251, params: 25M}
+  M14: {d_model: 1280, n_heads: 40, location: lumi, prime: 251, params: 40M}
+  M15: {d_model: 1632, n_heads: 48, location: lumi, prime: 503, params: 64M}
+  M16: {d_model: 2000, n_heads: 40, location: lumi, prime: 1009, params: 100M}
+  M17: {d_model: 2400, n_heads: 40, location: lumi, prime: 2003, params: 150M}
+  M18: {d_model: 2750, n_heads: 50, location: lumi, prime: 3001, params: 200M}
+
+# Early stopping
+early_stop:
+  patience: 100
+  threshold: 0.99
+
+# Representation monitoring
+representation:
+  enabled: true
+  interval: 500
+  max_snapshots: 30
+
+# LUMI deployment
+lumi:
+  account: project_465002952
+  partition: small-g
+  gpus_per_node: 4
+  walltime: "48:00:00"
+  cpus_per_task: 28
+  mem: "120G"
+  container: /appl/local/containers/sif-images/lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.1.sif
+  scratch: /scratch/project_465002952/dlp_grokking

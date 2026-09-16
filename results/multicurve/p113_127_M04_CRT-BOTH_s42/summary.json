@@ -1,0 +1,21 @@
+{
+  "primes": [
+    113,
+    127
+  ],
+  "n_curves": 2,
+  "variant": "CRT-BOTH",
+  "model_id": "M04",
+  "n_params": 432005,
+  "n_core": 396544,
+  "best_test_acc": 0.8048991354466859,
+  "total_epochs": 50000,
+  "final_wd": 0.2986564086364556,
+  "seed": 42,
+  "elapsed_s": 4487.357113838196,
+  "per_curve_best": {
+    "0": 0.8929330499468651,
+    "1": 0.700566750629723
+  },
+  "all_grokked": false
+}

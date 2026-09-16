@@ -1,0 +1,11 @@
+{
+  "variant": "RAW",
+  "seed": 42,
+  "total_epochs": 99999,
+  "best_test_acc": 0.9488213399503722,
+  "mem_epoch": 100,
+  "n_params": 428277,
+  "n_core": 396544,
+  "train_size": 1612,
+  "test_size": 3224
+}

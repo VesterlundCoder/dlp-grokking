@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Grokking the Discrete Logarithm: Scaling Across Model Capacity and Mechanistic Analysis"
+type: software
+authors:
+  - given-names: David
+    family-names: Vesterlund
+    affiliation: "Industrial Research at Vesterlund Ventures Holding AB"
+repository-code: "https://github.com/VesterlundCoder/dlp-grokking"
+license: MIT
+version: "1.0.0"
+date-released: "2026-09-16"
+keywords:
+  - grokking
+  - discrete logarithm
+  - mechanistic interpretability
+  - symbolic regression
+  - transformer
+  - neural scaling

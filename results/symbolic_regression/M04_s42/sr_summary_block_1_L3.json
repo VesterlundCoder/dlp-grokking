@@ -1,0 +1,109 @@
+{
+  "level_3": [
+    {
+      "dim": 12,
+      "variance": 157.8115692138672,
+      "corr_with_x": 0.0019324655395355666,
+      "probe_r2": 7.749306495785646e-05,
+      "free_sr": {
+        "method": "dim12_block_1_L3_free",
+        "equation": "(sin(b * 6.6559143) - 0.47498688) + (sin((sin(b * 1.5690249) - (sin(b * -2.0174766) - 8.375306)) - (b * 1.5805922)) * 8.375306)",
+        "r2": 0.16001079216589065,
+        "loss": 120.21405,
+        "complexity": 25,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim12_block_1_L3_alg",
+        "error": "Invalid variable name cos(2\u03c0a/q). Only alphanumeric characters, numbers, and underscores are allowed."
+      }
+    },
+    {
+      "dim": 17,
+      "variance": 115.63160705566406,
+      "corr_with_x": 0.061082759117004774,
+      "probe_r2": 0.0005933842655492239,
+      "free_sr": {
+        "method": "dim17_block_1_L3_free",
+        "equation": "((cos(b) + -3.9443846) * (cos((a - b) * 1.5704883) - (cos(b * 1.5704883) * (cos(b + 0.336734) + 1.5704883)))) + 1.5704883",
+        "r2": 0.11833417306223337,
+        "loss": 90.601944,
+        "complexity": 25,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim17_block_1_L3_alg",
+        "error": "Invalid variable name cos(2\u03c0a/q). Only alphanumeric characters, numbers, and underscores are allowed."
+      }
+    },
+    {
+      "dim": 31,
+      "variance": 143.7615509033203,
+      "corr_with_x": 0.00272237056952849,
+      "probe_r2": 0.00013713809786686237,
+      "free_sr": {
+        "method": "dim31_block_1_L3_free",
+        "equation": "((exp(cos((a + b) * -4.7124014)) + (cos(cos(b * -4.7124014) - -4.7124014) + -1.4863622)) * 7.057795) - cos(b * 0.38982955)",
+        "r2": 0.33354741033752555,
+        "loss": 86.69118,
+        "complexity": 24,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim31_block_1_L3_alg",
+        "error": "Invalid variable name cos(2\u03c0a/q). Only alphanumeric characters, numbers, and underscores are allowed."
+      }
+    },
+    {
+      "dim": 54,
+      "variance": 96.29199981689453,
+      "corr_with_x": 0.06547802004852118,
+      "probe_r2": 0.0009340227991285754,
+      "free_sr": {
+        "method": "dim54_block_1_L3_free",
+        "equation": "cos((cos(sin(cos(a / -0.6274716))) * cos(a / -0.6274716)) + (16.042366 / (-10.215863 / b))) * 6.0220823",
+        "r2": 0.043646975756516326,
+        "loss": 80.04095,
+        "complexity": 20,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim54_block_1_L3_alg",
+        "error": "Invalid variable name cos(2\u03c0a/q). Only alphanumeric characters, numbers, and underscores are allowed."
+      }
+    },
+    {
+      "dim": 71,
+      "variance": 76.6240463256836,
+      "corr_with_x": 0.0625850054565203,
+      "probe_r2": 0.0006835101298298119,
+      "free_sr": {
+        "method": "dim71_block_1_L3_free",
+        "equation": "(((cos(b * -0.10903863) + cos(b + 0.8304874)) + 4.2208257) + cos(b * 0.57005376)) * (cos(b * 1.5707799) + 0.52392757)",
+        "r2": 0.046142521872124975,
+        "loss": 65.8778,
+        "complexity": 23,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim71_block_1_L3_alg",
+        "error": "Invalid variable name cos(2\u03c0a/q). Only alphanumeric characters, numbers, and underscores are allowed."
+      }
+    }
+  ]
+}

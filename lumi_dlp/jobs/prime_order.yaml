@@ -1,0 +1,128 @@
+# Prime-Order Subgroup DLP — P113 experiments
+# Tests grokking without smooth factorization (Phase D / G5)
+# DLP in order-113 subgroup of F_227*
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # IID split, multiple seeds
+  - name: P113_iid_M04_s42
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: iid
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: P113_iid_M04_s123
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: iid
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: P113_iid_M04_s7
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: iid
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 7
+
+  # OOD split (disjoint generators)
+  - name: P113_ood_M04_s42
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: ood
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # Larger models on P113
+  - name: P113_iid_M06_s42
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: iid
+    model_id: M06
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: P113_iid_M08_s42
+    type: prime_order
+    p_ambient: 227
+    r_prime: 113
+    split: iid
+    model_id: M08
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 50
+    checkpoint_interval: 5000
+    early_stop_patience: 200
+    early_stop_threshold: 0.99
+    seed: 42

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "M04_p601_lr3e4",
+    "primes": [
+      601
+    ],
+    "model_id": "M04",
+    "lr": 0.0003,
+    "train_frac": 0.3,
+    "seed": 42,
+    "grokked": false,
+    "best_acc": 0.001755952380952381,
+    "epochs_run": 15000,
+    "elapsed_s": 3840.6728608608246
+  },
+  {
+    "name": "M06_p601_lr3e4",
+    "primes": [
+      601
+    ],
+    "model_id": "M06",
+    "lr": 0.0003,
+    "train_frac": 0.3,
+    "seed": 42,
+    "grokked": false,
+    "best_acc": 0.0018601190476190475,
+    "epochs_run": 14800,
+    "elapsed_s": 7216.49268913269
+  },
+  {
+    "name": "M04_p337_tf40_lr3e4",
+    "primes": [
+      337
+    ],
+    "model_id": "M04",
+    "lr": 0.0003,
+    "train_frac": 0.4,
+    "seed": 42,
+    "grokked": false,
+    "best_acc": 0.20946574351555233,
+    "epochs_run": 10800,
+    "elapsed_s": 5400.850476980209
+  },
+  {
+    "name": "M07_p337_lr3e4",
+    "primes": [
+      337
+    ],
+    "model_id": "M07",
+    "lr": 0.0003,
+    "train_frac": 0.3,
+    "seed": 42,
+    "grokked": true,
+    "best_acc": 0.9629317980513729,
+    "epochs_run": 800,
+    "elapsed_s": 480.0929219722748
+  },
+  {
+    "name": "M04_p337_tf50_lr3e4_s123",
+    "primes": [
+      337
+    ],
+    "model_id": "M04",
+    "lr": 0.0003,
+    "train_frac": 0.5,
+    "seed": 123,
+    "grokked": false,
+    "best_acc": 0.003224206349206349,
+    "epochs_run": 12400,
+    "elapsed_s": 5409.842684745789
+  },
+  {
+    "name": "M05_p601_lr5e4",
+    "primes": [
+      601
+    ],
+    "model_id": "M05",
+    "lr": 0.0005,
+    "train_frac": 0.3,
+    "seed": 42,
+    "grokked": false,
+    "best_acc": 0.001681547619047619,
+    "epochs_run": 15000,
+    "elapsed_s": 4620.758641958237
+  },
+  {
+    "name": "M08_p337_lr3e4",
+    "primes": [
+      337
+    ],
+    "model_id": "M08",
+    "lr": 0.0003,
+    "train_frac": 0.3,
+    "seed": 42,
+    "grokked": true,
+    "best_acc": 0.9972099202834367,
+    "epochs_run": 400,
+    "elapsed_s": 300.04216384887695
+  },
+  {
+    "name": "M04_p601_tf50_lr3e4",
+    "primes": [
+      601
+    ],
+    "model_id": "M04",
+    "lr": 0.0003,
+    "train_frac": 0.5,
+    "seed": 42,
+    "grokked": false,
+    "best_acc": 0.0018333333333333333,
+    "epochs_run": 9200,
+    "elapsed_s": 7221.893455028534
+  }
+]

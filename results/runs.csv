@@ -1,0 +1,27 @@
+experiment_id,p,q,group_type,split_type,seed,d_model,n_heads,n_layers,P_total,P_core,N_train,train_frac,N_test,T_mem,T_50,T_90,T_95,T_99,G_delay,best_test_acc,final_test_acc,total_epochs,run_classification,source,notes
+M04_p113_s42,113,112,composite (16x7),Pair-IID,42,128,4,2,427253,396544,1612,0.3,,90,22650,26830,28870,33320,298,0.9981,,,grokked,local,Primary anchor. 75 checkpoints saved.
+M01_p113_s42,113,112,,Pair-IID,42,56,2,,90221,76720,1612,0.3,,,,,,,,0.076,,,failed,LUMI-G,
+M02_p113_s42,113,112,,Pair-IID,42,80,4,,174917,155680,1612,0.3,,,,,,,,0.119,,,failed,LUMI-G,
+M03_p113_s42,113,112,,Pair-IID,42,104,4,,287261,262288,1612,0.3,,,,,,,,0.155,,,failed,LUMI-G,
+M05_p113_s42_LUMI,113,112,,Pair-IID,42,160,5,,656917,618560,1612,0.3,,,,,,,,0.257,,,failed,LUMI-G,Failed at 33%. See local 40% result.
+M05_p113_s42_local,113,112,,Pair-IID,42,160,5,,656917,618560,2150,0.4,,,,,,,,0.996,,18321,grokked,local,Grokks at 40%. Non-monotonicity is train-fraction dependent.
+M06_p113_s42,113,112,,Pair-IID,42,208,8,,1093573,1043744,1612,0.3,,,,,,,,0.285,,,failed,LUMI-G,
+M07_p113_s42,113,112,,Pair-IID,42,256,8,,1640821,1579520,1881,0.35,,,,,,,,0.998,,,grokked,LUMI-G,
+M08_p113_s42,113,112,,Pair-IID,42,320,10,,2542517,2465920,2150,0.4,,,,,,,,0.998,,,grokked,LUMI-G,
+M09_p113_s42,113,112,,Pair-IID,42,384,12,,3640821,3548928,2419,0.45,,,,,,,,0.997,,,grokked,LUMI-G,
+M10_p113_s42,113,112,,Pair-IID,42,480,15,,5656917,5542080,2688,0.5,,,,,,,,0.995,,,grokked,LUMI-G,
+M11_p113_s42,113,112,,Pair-IID,42,608,19,,9033173,8887744,2957,0.55,,,,,,,,0.992,,,grokked,LUMI-G,
+M12_p113_s42,113,112,,Pair-IID,42,768,24,,14359413,14175744,3225,0.6,,,,,,,,0.998,,,grokked,LUMI-G,
+M13_p257_s42,257,256,,Pair-IID,42,,,,,,,,,,,,,,,0.975,,197600,near-grokked,LUMI-G,
+M14_p521_s42,521,520,,Pair-IID,42,,,,,,,,,,,,,,,0.9993,,30100,grokked,LUMI-G,
+P113-iid_M04_s42,227,113,prime-order subgroup,Pair-IID,42,128,,,,,,,,,,,,,,1.0,,145650,grokked,LUMI-G,
+P113-iid_M04_s123,227,113,prime-order subgroup,Pair-IID,123,128,,,,,,,,,,,,,,1.0,,199750,grokked,LUMI-G,
+P113-iid_M04_s7,227,113,prime-order subgroup,Pair-IID,7,128,,,,,,,,,,,,,,0.9999,,243150,grokked,LUMI-G,
+P113-iid_M06_s42,227,113,prime-order subgroup,Pair-IID,42,208,,,,,,,,,,,,,,1.0,,407850,grokked,LUMI-G,
+P113-iid_M08_s42,227,113,prime-order subgroup,Pair-IID,42,320,,,,,,,,,,,,,,0.999,,416850,grokked,LUMI-G,
+P113-ood_M04_s42,227,113,prime-order subgroup,Generator-OOD,42,128,,,,,,,,,,,,,,1.0,,326150,grokked,LUMI-G,Disjoint generators train/test.
+M04_p241_crt_s42_local,241,240,composite (15x16),Pair-IID,42,128,4,2,461000,,2158,0.3,,,,,,1600,,1.0,,,grokked,local,"CRT-BOTH, lr=1e-3. Grokked instantly."
+M04_p337_crt_tf30_s42_local,337,336,composite (16x21),Pair-IID,42,128,4,2,486000,,3387,0.3,,,,,,,,0.2284,,9000,failed,local,"CRT-BOTH, lr=3e-4. M04 cannot grok p=337 at 30% data."
+M04_p337_crt_tf50_s42_local,337,336,composite (16x21),Pair-IID,42,128,4,2,486000,,5645,0.5,,,,,,,,0.956,,7400,grokked,local,"CRT-BOTH, lr=3e-4. M04 groks p=337 at 50% data."
+M05_p337_crt_tf40_s42_local,337,336,composite (16x21),Pair-IID,42,160,5,2,745000,,4516,0.4,,,,,,,,0.9999,,8000,grokked,local,"CRT-BOTH, lr=3e-4. Slingshot/forgetting after peak."
+M06_p337_crt_tf30_s42_local,337,336,composite (16x21),Pair-IID,42,208,8,2,1200000,,3387,0.3,,,,,,,,0.9924,,8000,grokked,local,"CRT-BOTH, lr=3e-4. Slingshot/forgetting after peak."

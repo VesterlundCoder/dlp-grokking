@@ -1,0 +1,14 @@
+{
+  "model_id": "M05",
+  "state": "E",
+  "best_test_acc": 0.9959702417854929,
+  "total_epochs": 18321,
+  "final_wd": 0.3,
+  "n_params": 656917,
+  "P_core": 618560,
+  "T_mem": null,
+  "T_50": 13370,
+  "T_95": 16970,
+  "G": null,
+  "seed": 42
+}

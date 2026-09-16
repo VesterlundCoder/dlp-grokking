@@ -1,0 +1,105 @@
+# Large-Prime Scaling — Resubmit of failed/incomplete experiments
+# M14 already grokked (99.93%) — skipped
+# M13 timed out at 97.5% after 197K epochs — resubmit with more time
+# M15-M18 all OOMed with full-batch — resubmit with mini-batch
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # M13 p=257 — timed out at 97.5%, resubmit (full batch OK, small dataset)
+  - name: M13_p257_s42
+    type: standard
+    model_id: M13
+    prime: 257
+    n_layers: 2
+    train_frac: 0.40
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # M15 p=1031 — OOMed, resubmit with mini-batch (67M params, 126K train)
+  - name: M15_p1031_s42
+    type: standard
+    model_id: M15
+    prime: 1031
+    train_batch_size: 4096
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # M16 p=2053 — OOMed, resubmit with mini-batch (100M params, 1.26M train)
+  - name: M16_p2053_s42
+    type: standard
+    model_id: M16
+    prime: 2053
+    train_batch_size: 2048
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # M17 p=4099 — OOMed, resubmit with mini-batch (145M params, 1.68M train)
+  - name: M17_p4099_s42
+    type: standard
+    model_id: M17
+    prime: 4099
+    train_batch_size: 1024
+    n_layers: 2
+    train_frac: 0.10
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # M18 p=8209 — OOMed, resubmit with mini-batch (190M params, 5M train)
+  - name: M18_p8209_s42
+    type: standard
+    model_id: M18
+    prime: 8209
+    train_batch_size: 512
+    n_layers: 2
+    train_frac: 0.075
+    epochs: 1000000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 0.1
+    eval_interval: 100
+    checkpoint_interval: 10000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
