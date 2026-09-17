@@ -1,0 +1,435 @@
+# Tier 1 Critical Experiments for DLP Scaling Paper
+# These are the experiments needed for submission:
+# 1. Capacity sweep at matched 30% train fraction (clean capacity axis)
+# 2. Data sweep M04 (5%-60% train fractions)
+# 3. Multi-seed M04 (seeds 123, 456, 789)
+# 4. Prime-order multi-seed (IID seeds 456, 789; OOD seeds 123, 456)
+#
+# All use RAW representation (not CRT-BOTH) since these are for the main paper.
+project: dlp_grokking
+base_seed: 42
+jobs:
+  # === Capacity sweep at matched 30% train fraction ===
+  # All M01-M12 at 30% to get a clean capacity axis
+  - name: M01_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M01
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M02_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M02
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M03_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M03
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M05_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M05
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M06_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M06
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M07_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M07
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M08_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M08
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M09_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M09
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M10_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M10
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M11_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M11
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M12_p113_f0.30_s42_matched
+    type: standard
+    prime: 113
+    model_id: M12
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === Data sweep M04 (5%-60%) ===
+  - name: M04_p113_f0.05_s42
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.05
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M04_p113_f0.10_s42
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.10
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M04_p113_f0.15_s42
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.15
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M04_p113_f0.20_s42
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.20
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  - name: M04_p113_f0.25_s42
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.25
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 42
+
+  # === Multi-seed M04 (seeds 123, 456, 789) ===
+  - name: M04_p113_f0.30_s123
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: M04_p113_f0.30_s456
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 456
+
+  - name: M04_p113_f0.30_s789
+    type: standard
+    prime: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 789
+
+  # === Prime-order multi-seed ===
+  - name: P113_iid_M04_s456
+    type: prime_order
+    prime: 227
+    subgroup_order: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 456
+
+  - name: P113_iid_M04_s789
+    type: prime_order
+    prime: 227
+    subgroup_order: 113
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 789
+
+  - name: P113_ood_M04_s123
+    type: prime_order
+    prime: 227
+    subgroup_order: 113
+    split_type: generator_ood
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 123
+
+  - name: P113_ood_M04_s456
+    type: prime_order
+    prime: 227
+    subgroup_order: 113
+    split_type: generator_ood
+    model_id: M04
+    n_layers: 2
+    train_frac: 0.30
+    epochs: 500000
+    lr: 0.001
+    wd_start: 0.05
+    wd_step: 0.05
+    wd_ramp_interval: 1000
+    lr_drop_factor: 1.0
+    eval_interval: 100
+    checkpoint_interval: 50000
+    early_stop_patience: 100
+    early_stop_threshold: 0.99
+    seed: 456

@@ -1,0 +1,9 @@
+experiment_id,description,priority
+M04_p113_s456,"Multi-seed M04, seed 456",high
+M04_p113_s789,"Multi-seed M04, seed 789",high
+capacity_sweep_matched_30pct,All M01-M12 at 30% train fraction (clean capacity axis),critical
+data_sweep_M04,M04 with train fractions 5-60%,critical
+P113-iid_M04_s456_s789,"Prime-order M04, seeds 456/789 (5-seed replication)",high
+P113-ood_M04_s123_s456,"Prime-order OOD, multiple seeds",high
+group_size_ladder_M04,"M04 on p=113,251,503,1009,2003 with fixed-vocabulary tokenizer",high
+wd_robustness_M04,M04 with 3-5 WD regimes,medium

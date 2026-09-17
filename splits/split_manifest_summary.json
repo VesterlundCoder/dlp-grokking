@@ -1,0 +1,26 @@
+{
+  "splits": [
+    {
+      "file": "p113_pair_iid_s42.json",
+      "task": "DLP_p113",
+      "p": 113,
+      "q": 112,
+      "split_type": "pair-IID",
+      "seed": 42,
+      "n_train": 1612,
+      "n_test": 3764,
+      "sha256": "97acef2a27a09faab030ba4a64194217e36714963b29ac77b587b231b26e0a7e"
+    },
+    {
+      "file": "p227_q113_pair_iid_s42.json",
+      "task": "DLP_prime_order_p227_q113",
+      "p": 227,
+      "q": 113,
+      "split_type": "pair-IID",
+      "seed": 42,
+      "n_train": 3796,
+      "n_test": 8860,
+      "sha256": "6e424c79f6a29cf484f1cf3cc9ec93fc95cb5656f38e55b5fc62786c4a31d346"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "checkpoint": "results/local_probe/M04_s42/checkpoints/final.pt",
+  "p": 113,
+  "q": 112,
+  "g0": 3,
+  "n_pairs": 5376,
+  "d_model": 128,
+  "n_layers": 2,
+  "vocab_size": 117,
+  "n_params": 427253,
+  "config": {}
+}

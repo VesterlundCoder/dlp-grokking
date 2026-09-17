@@ -1,0 +1,194 @@
+{
+  "level_3": [
+    {
+      "dim": 12,
+      "variance": 157.8115692138672,
+      "corr_with_x": 0.0019324655395355666,
+      "probe_r2": 7.749306495785646e-05,
+      "free_sr": {
+        "method": "dim12_pre_unembed_L3_free",
+        "equation": "(sin(b * 6.6559143) - 0.47498688) + (sin((sin(b * 1.5690249) - (sin(b * -2.0174766) - 8.375306)) - (b * 1.5805922)) * 8.375306)",
+        "r2": 0.16001079216589065,
+        "loss": 120.21405,
+        "complexity": 25,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim12_pre_unembed_L3_alg",
+        "equation": "(((-0.26218763 - b_inv) + (sin(x) / -3.4476542)) / (0.12829657 - b_inv)) + (cos((-1.1964207 / (b_inv - 0.015260209)) / (cos_x_q - b_inv)) / 0.12829657)",
+        "r2": 0.2107054296754315,
+        "loss": 111.32689,
+        "complexity": 25,
+        "feature_names": [
+          "a",
+          "b",
+          "a_inv",
+          "b_inv",
+          "x",
+          "cos_a_q",
+          "sin_a_q",
+          "cos_b_q",
+          "sin_b_q",
+          "cos_x_q",
+          "sin_x_q"
+        ],
+        "q": 112
+      }
+    },
+    {
+      "dim": 17,
+      "variance": 115.63160705566406,
+      "corr_with_x": 0.061082759117004774,
+      "probe_r2": 0.0005933842655492239,
+      "free_sr": {
+        "method": "dim17_pre_unembed_L3_free",
+        "equation": "((cos(b) + -3.9443846) * (cos((a - b) * 1.5704883) - (cos(b * 1.5704883) * (cos(b + 0.336734) + 1.5704883)))) + 1.5704883",
+        "r2": 0.11833417306223337,
+        "loss": 90.601944,
+        "complexity": 25,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim17_pre_unembed_L3_alg",
+        "equation": "((cos(sin_x_q * (sin_x_q * 446.189)) * -9.916523) + ((cos(sin_x_q * 49.712276) * 3.699028) + 0.91788226)) - (cos(sin_x_q * -4.60103) * -7.473057)",
+        "r2": 0.34342451172749067,
+        "loss": 69.71399,
+        "complexity": 24,
+        "feature_names": [
+          "a",
+          "b",
+          "a_inv",
+          "b_inv",
+          "x",
+          "cos_a_q",
+          "sin_a_q",
+          "cos_b_q",
+          "sin_b_q",
+          "cos_x_q",
+          "sin_x_q"
+        ],
+        "q": 112
+      }
+    },
+    {
+      "dim": 31,
+      "variance": 143.7615509033203,
+      "corr_with_x": 0.00272237056952849,
+      "probe_r2": 0.00013713809786686237,
+      "free_sr": {
+        "method": "dim31_pre_unembed_L3_free",
+        "equation": "((exp(cos((a + b) * -4.7124014)) + (cos(cos(b * -4.7124014) - -4.7124014) + -1.4863622)) * 7.057795) - cos(b * 0.38982955)",
+        "r2": 0.33354741033752555,
+        "loss": 86.69118,
+        "complexity": 24,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim31_pre_unembed_L3_alg",
+        "equation": "(cos((x * -1.5801134) - cos(cos(x - 3.4084806) * -1.9796294)) + cos(3.1417253 * (3.4084806 - x))) * 10.933848",
+        "r2": 0.30349257893398895,
+        "loss": 75.237564,
+        "complexity": 21,
+        "feature_names": [
+          "a",
+          "b",
+          "a_inv",
+          "b_inv",
+          "x",
+          "cos_a_q",
+          "sin_a_q",
+          "cos_b_q",
+          "sin_b_q",
+          "cos_x_q",
+          "sin_x_q"
+        ],
+        "q": 112
+      }
+    },
+    {
+      "dim": 54,
+      "variance": 96.29199981689453,
+      "corr_with_x": 0.06547802004852118,
+      "probe_r2": 0.0009340227991285754,
+      "free_sr": {
+        "method": "dim54_pre_unembed_L3_free",
+        "equation": "cos((cos(sin(cos(a / -0.6274716))) * cos(a / -0.6274716)) + (16.042366 / (-10.215863 / b))) * 6.0220823",
+        "r2": 0.043646975756516326,
+        "loss": 80.04095,
+        "complexity": 20,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim54_pre_unembed_L3_alg",
+        "equation": "(cos(x / 0.8077665) * ((cos_x_q + 0.6266127) - ((cos(cos(sin_x_q) * 14.72766) * cos(cos(sin_x_q) / cos_x_q)) / 0.075029))) / 0.3878048",
+        "r2": 0.42224159792364657,
+        "loss": 50.648182,
+        "complexity": 24,
+        "feature_names": [
+          "a",
+          "b",
+          "a_inv",
+          "b_inv",
+          "x",
+          "cos_a_q",
+          "sin_a_q",
+          "cos_b_q",
+          "sin_b_q",
+          "cos_x_q",
+          "sin_x_q"
+        ],
+        "q": 112
+      }
+    },
+    {
+      "dim": 71,
+      "variance": 76.6240463256836,
+      "corr_with_x": 0.0625850054565203,
+      "probe_r2": 0.0006835101298298119,
+      "free_sr": {
+        "method": "dim71_pre_unembed_L3_free",
+        "equation": "(((cos(b * -0.10903863) + cos(b + 0.8304874)) + 4.2208257) + cos(b * 0.57005376)) * (cos(b * 1.5707799) + 0.52392757)",
+        "r2": 0.046142521872124975,
+        "loss": 65.8778,
+        "complexity": 23,
+        "feature_names": [
+          "a",
+          "b"
+        ]
+      },
+      "alg_sr": {
+        "method": "dim71_pre_unembed_L3_alg",
+        "equation": "cos((-0.3864164 - (5.8864226 / sin((cos_x_q * 22.61148) + 0.2795609))) - (sin((sin(cos_x_q) * 6.2526407) + -0.3864164) + cos_x_q)) * 8.881884",
+        "r2": 0.31480009062482817,
+        "loss": 39.64256,
+        "complexity": 23,
+        "feature_names": [
+          "a",
+          "b",
+          "a_inv",
+          "b_inv",
+          "x",
+          "cos_a_q",
+          "sin_a_q",
+          "cos_b_q",
+          "sin_b_q",
+          "cos_x_q",
+          "sin_x_q"
+        ],
+        "q": 112
+      }
+    }
+  ]
+}

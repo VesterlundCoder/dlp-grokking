@@ -1,0 +1,21 @@
+{
+  "method": "dim31_pre_unembed_L3_alg",
+  "equation": "(cos((x * -1.5801134) - cos(cos(x - 3.4084806) * -1.9796294)) + cos(3.1417253 * (3.4084806 - x))) * 10.933848",
+  "r2": 0.30349257893398895,
+  "loss": 75.237564,
+  "complexity": 21,
+  "feature_names": [
+    "a",
+    "b",
+    "a_inv",
+    "b_inv",
+    "x",
+    "cos_a_q",
+    "sin_a_q",
+    "cos_b_q",
+    "sin_b_q",
+    "cos_x_q",
+    "sin_x_q"
+  ],
+  "q": 112
+}

@@ -1,0 +1,76 @@
+{
+  "model_accuracy": 0.9910714285714286,
+  "linear_model": {
+    "r2": 0.1761811529931846,
+    "accuracy": 1.0
+  },
+  "full_fourier": {
+    "r2": 0.19658764713716947,
+    "accuracy": 1.0,
+    "n_features": 224
+  },
+  "gated_model": {
+    "r2": 0.17403632820650894,
+    "accuracy": 0.5,
+    "n_features": 45
+  },
+  "quadratic_model": {
+    "r2": 0.18129996955942052,
+    "accuracy": 0.5,
+    "n_features": 65
+  },
+  "mlp_analysis": [
+    {
+      "layer": 0,
+      "mlp_linearity_r2": 1.0,
+      "pre_activation_stats": {
+        "mean": -8.665654604556039e-05,
+        "std": 0.016095459461212158,
+        "min": -0.09247161448001862,
+        "max": 0.09952893853187561,
+        "frac_positive": 0.5006138392857142,
+        "frac_large": 0.0
+      },
+      "d_model": 160
+    },
+    {
+      "layer": 1,
+      "mlp_linearity_r2": 1.0,
+      "pre_activation_stats": {
+        "mean": -0.0021994798444211483,
+        "std": 0.2885596454143524,
+        "min": -2.1958370208740234,
+        "max": 1.6819374561309814,
+        "frac_positive": 0.484765625,
+        "frac_large": 5.580357142857143e-05
+      },
+      "d_model": 160
+    }
+  ],
+  "logit_structure": {
+    "circulant_total": 12432,
+    "circulant_violations": 12430,
+    "circulant_violation_rate": 0.9998391248391248,
+    "singular_values_top10": [
+      1068.0985533281053,
+      958.1552582842903,
+      857.1838711016771,
+      752.826400352454,
+      609.077326612785,
+      536.2230942941617,
+      165.76385219675737,
+      25.752845584372906,
+      13.024062113150817,
+      2.9353736325719795
+    ],
+    "rank_90": 5,
+    "rank_99": 6,
+    "rank_999": 7,
+    "logit_matrix_shape": [
+      112,
+      112
+    ],
+    "logit_mean": -1.2845867166179974,
+    "logit_std": 17.916297265746852
+  }
+}

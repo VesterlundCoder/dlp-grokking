@@ -1,0 +1,12 @@
+{
+  "label": "P113-B",
+  "seed": 42,
+  "total_epochs": 99999,
+  "best_test_acc": 0.018109380659181457,
+  "mem_epoch": 70,
+  "final_wd": 0.3,
+  "n_params": 427253,
+  "n_core": 396544,
+  "train_size": 1612,
+  "test_size": 11044
+}

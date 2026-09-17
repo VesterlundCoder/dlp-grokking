@@ -1,0 +1,14 @@
+{
+  "model_id": "M04",
+  "state": "E",
+  "best_test_acc": 0.9981389578163772,
+  "total_epochs": 37481,
+  "final_wd": 0.3,
+  "n_params": 427253,
+  "P_core": 396544,
+  "T_mem": null,
+  "T_50": 22650,
+  "T_95": 28870,
+  "G": null,
+  "seed": 42
+}

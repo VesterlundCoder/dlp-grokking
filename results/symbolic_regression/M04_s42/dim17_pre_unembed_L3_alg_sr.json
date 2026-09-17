@@ -1,0 +1,21 @@
+{
+  "method": "dim17_pre_unembed_L3_alg",
+  "equation": "((cos(sin_x_q * (sin_x_q * 446.189)) * -9.916523) + ((cos(sin_x_q * 49.712276) * 3.699028) + 0.91788226)) - (cos(sin_x_q * -4.60103) * -7.473057)",
+  "r2": 0.34342451172749067,
+  "loss": 69.71399,
+  "complexity": 24,
+  "feature_names": [
+    "a",
+    "b",
+    "a_inv",
+    "b_inv",
+    "x",
+    "cos_a_q",
+    "sin_a_q",
+    "cos_b_q",
+    "sin_b_q",
+    "cos_x_q",
+    "sin_x_q"
+  ],
+  "q": 112
+}

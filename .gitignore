@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large artifacts (not tracked in git; released via Zenodo DOI)
+results/local_probe/**/checkpoints/*.pt
+results/extraction/**/checkpoints/*.pt
+experiments/**/checkpoints/*.pt
+results/symbolic_regression/**/activations.npz
+lumi_results/
+outputs/
+
+# PySR outputs
+outputs/
+
+# Logs
+*.log
+
+# Compiled LaTeX (keep .tex, .bib, .pdf)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.out

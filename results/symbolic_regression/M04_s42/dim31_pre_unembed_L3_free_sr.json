@@ -1,0 +1,11 @@
+{
+  "method": "dim31_pre_unembed_L3_free",
+  "equation": "((exp(cos((a + b) * -4.7124014)) + (cos(cos(b * -4.7124014) - -4.7124014) + -1.4863622)) * 7.057795) - cos(b * 0.38982955)",
+  "r2": 0.33354741033752555,
+  "loss": 86.69118,
+  "complexity": 24,
+  "feature_names": [
+    "a",
+    "b"
+  ]
+}
